@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 body {
@@ -10,98 +9,92 @@ body {
   align-items: center;
   height: 100vh;
   overflow: hidden;
+}
+
+.letter-container {
   position: relative;
+  width: 500px;
+  height: 300px;
+  perspective: 1000px;
 }
 
-.container {
-  text-align: center;
-  z-index: 1;
+.fold {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: #ffccd5;
+  top: 0;
+  transform-origin: center;
+  z-index: 2;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: transform 1s ease;
 }
 
-.heart {
-  font-size: 4rem;
+.left-fold {
+  left: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.right-fold {
+  right: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.heart-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  font-size: 2.5rem;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.heart:hover {
-  transform: scale(1.2);
+.heart-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
-.letter {
-  margin-top: 20px;
-  display: flex;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 1s ease;
-}
-
-.page {
-  width: 250px;
-  height: 300px;
-  background: #fff;
-  margin: 0 5px;
-  padding: 20px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+.letter-content {
+  position: absolute;
+  background: white;
   border-radius: 10px;
-  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  opacity: 0;
+  transition: opacity 1s ease 0.5s;
+  z-index: 1;
 }
 
-.left {
-  border-right: 1px solid #ccc;
+.letter-content.open {
+  opacity: 1;
 }
 
-.right {
-  border-left: 1px solid #ccc;
-}
-
-p {
-  font-size: 1rem;
+.letter-content p {
+  font-size: 1.1rem;
   color: #333;
 }
 
 .signature {
-  margin-top: 40px;
-  font-style: italic;
+  margin-top: 30px;
 }
 
 .sticker {
+  width: 60px;
   position: absolute;
-  width: 40px;
 }
 
 .sticker1 {
-  bottom: 10px;
-  left: 10px;
+  bottom: 20px;
+  left: 20px;
 }
 
 .sticker2 {
-  top: 10px;
-  right: 10px;
-}
-
-.burst-heart, .rain-heart {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: red;
-  clip-path: polygon(50% 0%, 61% 11%, 74% 11%, 85% 23%, 85% 37%, 74% 50%, 50% 75%, 26% 50%, 15% 37%, 15% 23%, 26% 11%, 39% 11%);
-  animation: pop 2s ease-out forwards;
-  opacity: 0.8;
-  z-index: 0;
-}
-
-.rain-heart {
-  top: -20px;
-  animation: fall 3s linear forwards;
-}
-
-@keyframes pop {
-  0% { transform: scale(0); opacity: 1; }
-  50% { transform: scale(1.5); opacity: 1; }
-  100% { transform: scale(0); opacity: 0; }
-}
-
-@keyframes fall {
-  to { transform: translateY(100vh); opacity: 0; }
+  top: 20px;
+  right: 20px;
 }
