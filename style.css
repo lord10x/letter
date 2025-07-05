@@ -124,3 +124,18 @@ body {
     animation: floatHearts 4s infinite ease-in-out;
     pointer-events: none;
 }
+
+
+.cover {
+    transition: transform 1.5s ease-in-out;
+    transform-origin: center;
+    z-index: 2;
+}
+
+.cover.left.open {
+    transform: rotateY(-100deg);
+}
+
+.cover.right.open {
+    transform: rotateY(100deg);
+}

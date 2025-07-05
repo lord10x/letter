@@ -29,3 +29,14 @@ window.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => heart.remove(), 4000);
     }, 500);
 });
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    const leftCover = document.querySelector(".cover.left");
+    const rightCover = document.querySelector(".cover.right");
+
+    setTimeout(() => {
+        if (leftCover) leftCover.classList.add("open");
+        if (rightCover) rightCover.classList.add("open");
+    }, 1000);
+});
