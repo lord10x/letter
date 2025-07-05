@@ -4,3 +4,28 @@ function openLetter() {
   document.querySelector(".heart-button").style.display = "none";
   document.querySelector(".letter-content").classList.add("open");
 }
+
+
+window.onload = () => {
+  openLetter();
+};
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    const heartBtn = document.getElementById("heartButton");
+    if (heartBtn) {
+        setTimeout(() => {
+            heartBtn.style.display = "none";
+        }, 5000);
+    }
+
+    // Floating heart generator
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.textContent = "💖";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+    }, 500);
+});
