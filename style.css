@@ -1,0 +1,107 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+  margin: 0;
+  background: #fff0f5;
+  font-family: 'Pacifico', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  text-align: center;
+  z-index: 1;
+}
+
+.heart {
+  font-size: 4rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.heart:hover {
+  transform: scale(1.2);
+}
+
+.letter {
+  margin-top: 20px;
+  display: flex;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s ease;
+}
+
+.page {
+  width: 250px;
+  height: 300px;
+  background: #fff;
+  margin: 0 5px;
+  padding: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  position: relative;
+}
+
+.left {
+  border-right: 1px solid #ccc;
+}
+
+.right {
+  border-left: 1px solid #ccc;
+}
+
+p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.signature {
+  margin-top: 40px;
+  font-style: italic;
+}
+
+.sticker {
+  position: absolute;
+  width: 40px;
+}
+
+.sticker1 {
+  bottom: 10px;
+  left: 10px;
+}
+
+.sticker2 {
+  top: 10px;
+  right: 10px;
+}
+
+.burst-heart, .rain-heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: red;
+  clip-path: polygon(50% 0%, 61% 11%, 74% 11%, 85% 23%, 85% 37%, 74% 50%, 50% 75%, 26% 50%, 15% 37%, 15% 23%, 26% 11%, 39% 11%);
+  animation: pop 2s ease-out forwards;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.rain-heart {
+  top: -20px;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+@keyframes fall {
+  to { transform: translateY(100vh); opacity: 0; }
+}
