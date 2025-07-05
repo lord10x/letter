@@ -15,50 +15,10 @@ body {
   position: relative;
   width: 500px;
   height: 300px;
-  perspective: 1000px;
-}
-
-.fold {
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  background: #ffccd5;
-  top: 0;
-  transform-origin: center;
-  z-index: 2;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  transition: transform 1s ease;
-}
-
-.left-fold {
-  left: 0;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-.right-fold {
-  right: 0;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.heart-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 3;
-  transform: translate(-50%, -50%);
-  font-size: 2.5rem;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.heart-button:hover {
-  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .letter-content {
-  position: absolute;
+  position: relative;
   background: white;
   border-radius: 10px;
   width: 100%;
@@ -66,13 +26,8 @@ body {
   padding: 30px;
   text-align: center;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  opacity: 0;
-  transition: opacity 1s ease 0.5s;
+  opacity: 1; /* Show immediately */
   z-index: 1;
-}
-
-.letter-content.open {
-  opacity: 1;
 }
 
 .letter-content p {
@@ -101,58 +56,28 @@ body {
   right: 20px;
 }
 
-
+/* Fade-in effect for whole page */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .fade-in {
-    animation: fadeIn 2s ease-in-out;
+  animation: fadeIn 2s ease-in-out;
 }
 
+/* Floating hearts */
 @keyframes floatHearts {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-200px); opacity: 0; }
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-200px); opacity: 0; }
 }
 
 .heart {
-    position: fixed;
-    bottom: 0;
-    font-size: 24px;
-    color: pink;
-    animation: floatHearts 4s infinite ease-in-out;
-    pointer-events: none;
+  position: fixed;
+  bottom: 0;
+  font-size: 24px;
+  color: pink;
+  animation: floatHearts 4s infinite ease-in-out;
+  pointer-events: none;
 }
 
-
-.cover {
-  position: absolute;
-  width: 50%;
-  height: 100%;
-  top: 0;
-  background-color: pink;
-  transition: transform 1.5s ease-in-out;
-  transform-origin: center;
-  z-index: 2;
-}
-
-.cover.left {
-  left: 0;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-.cover.right {
-  right: 0;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.cover.left.open {
-  transform: rotateY(-100deg);
-}
-
-.cover.right.open {
-  transform: rotateY(100deg);
-}
